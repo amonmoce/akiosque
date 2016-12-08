@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+
+
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
+
+		<!-- The main CSS file -->
+		<!-- <link href="style.css" rel="stylesheet" /> -->
+		<style>
+		.navBardemoBasicUsage md-content .ext-content {
+			padding: 50px;
+			margin: 20px;
+			background-color: #FFF2E0; }
+
+
+		</style>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<!-- The ng-app directive tells angular that the code below should be evaluated -->
+
+	<body>
+
+		<div ng-controller="AppCtrl" ng-cloak="" class="navBardemoBasicUsage" ng-app="MyApp">
+  <md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('page1')" name="page1">Page One</md-nav-item>
+      <md-nav-item md-nav-click="goto('page2')" name="page2">Page Two</md-nav-item>
+      <md-nav-item md-nav-click="goto('page3')" name="page3">Page Three</md-nav-item>
+      <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
+      <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
+      <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
+      -->
+    </md-nav-bar>
+    <div class="ext-content">
+      External content for `<span>{{currentNavItem}}</span>`
+    </div>
+  </md-content></div>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+-->
+		<!-- Include AngularJS from Google's CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+
+		<script>
+			(function() {
+			'use strict';
+
+			angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
+					.controller('AppCtrl', AppCtrl);
+
+			function AppCtrl($scope) {
+				$scope.currentNavItem = 'page1';
+			}
+			})();
+		</script>
+	</body>
+</html>
